@@ -111,7 +111,7 @@ def run():
 
             print(tela_inicial.get_updated_screen())
             config.clear_console()
-            print("Obrigadoe bom treino!")
+            print("Obrigado e bom treino!")
             exit(0)
 
         else:
