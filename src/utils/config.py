@@ -7,21 +7,16 @@ MENU_PRINCIPAL = """Menu Principal
 """
 
 MENU_RELATORIOS = """Relatórios
-1 - Relatório de Fornecedores
-2 - Relatório de Pedidos
-3 - Relatório de Produtos
-4 - Relatório de Clientes
-5 - Relatório de Fornecedores
-6 - Relatório de Itens de Pedidos
+1 - Relatório de Alunos
+2 - Relatório de Exercicios
+3 - Relatório de ALunos por tipo de Grupo muscular
+4 - Gerar ficha de exercicio diária
 0 - Sair
 """
 
 MENU_ENTIDADES = """Entidades
-1 - PRODUTOS
-2 - CLIENTES
-3 - FORNECEDORES
-4 - PEDIDOS
-5 - ITENS DE PEDIDOS
+1 - ALunos
+2 - Exercicios
 """
 
 # Consulta de contagem de registros por tabela
