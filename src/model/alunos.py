@@ -18,6 +18,7 @@ class Alunos:
         self.set_telefone(telefone)
         self.set_pagamento(pagamento)
         self.set_vencimento_mensalidade(vencimento_mensalidade)
+        self.set_exercicio(exercicio)
 
     def set_nome_aluno(self, nome_aluno: str):
         self.set_nome_aluno = nome_aluno
