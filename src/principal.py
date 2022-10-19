@@ -14,17 +14,15 @@ ctrl_exercicios = Controller_Exercicios()
 def reports(opcao_relatorio:int=0):
 
     if opcao_relatorio == 1:
-        relatorio.get_relatorio_pedidos_por_fornecedor()            
+        relatorio.get_relatorio_alunos            
     elif opcao_relatorio == 2:
-        relatorio.get_relatorio_pedidos()
+        relatorio.get_relatorio_exercicios
     elif opcao_relatorio == 3:
-        relatorio.get_relatorio_produtos()
+        relatorio.get_relatorio_grupo_muscular
     elif opcao_relatorio == 4:
-        relatorio.get_relatorio_clientes()
+        relatorio.get_relatorio_quant_pagamentos
     elif opcao_relatorio == 5:
-        relatorio.get_relatorio_fornecedores()
-    elif opcao_relatorio == 6:
-        relatorio.get_relatorio_itens_pedidos()
+        relatorio.get_gerar_treino
 
 def inserir(opcao_inserir:int=0):
 
@@ -36,21 +34,21 @@ def inserir(opcao_inserir:int=0):
 def atualizar(opcao_atualizar:int=0):
 
     if opcao_atualizar == 1:
-        relatorio.get_relatorio_produtos()
+        relatorio.get_relatorio_alunos
         aluno_atualizado = ctrl_aluno.atualizar_alunos()
     elif opcao_atualizar == 2:
-        relatorio.get_relatorio_clientes()
-        cliente_atualizado = ctrl_exercicios.atualizar_exercicios()
+        relatorio.get_relatorio_exercicios
+        exercicio_atualizado = ctrl_exercicios.atualizar_exercicios()
 
 
 ##Precisa criar os relatorios
 def excluir(opcao_excluir:int=0):
 
     if opcao_excluir == 1:
-        relatorio.get_relatorio_produtos()
+        relatorio.get_relatorio_alunos()
         ctrl_aluno.excluir_aluno()
     elif opcao_excluir == 2:                
-        relatorio.get_relatorio_clientes()
+        relatorio.get_relatorio_exercicios
         ctrl_exercicios.excluir_exercicio()
 
 
