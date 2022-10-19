@@ -21,7 +21,7 @@ class OracleQueries:
         self.port = 1521
         self.service_name = 'XEPDB1'
 
-        with open("/home/labdatabase/Desktop/example_crud_oracle-master/src/conexion/passphrase/authentication.oracle", "r") as f:
+        with open("src/conexion/passphrase/authentication.oracle", "r") as f:
             self.user, self.passwd = f.read().split(',')            
 
     def __del__(self):
