@@ -17,7 +17,7 @@ class Controller_Alunos:
 
         cpf = input("CPF(Novo): ")
 
-        data = dict(nome_aluno=nome, cpf=cpf)
+        data = dict(cpf=cpf)
         cursor.execute("""
         begin
             :codigo := ALUNOS_CODIGO_ALUNO_SEQ.NEXTVAL;

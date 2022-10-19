@@ -15,7 +15,7 @@ class Controller_Exercicios:
         repeticoes = input("Número de repetições: ")
         grupo_muscular= input("Grupo muscular treinado: ")   
 
-        oracle.write(f"insert into exercicios values ('EXERCICIOS_CODIGO_EXERCICIO_SEQ.NEXTVAL,{repeticoes},'{nome_exercicio}','{grupo_muscular}')")
+        oracle.write(f"insert into exercicios values (CODIGO_EXERCICIO_SEQ.NEXTVAL,{repeticoes},'{nome_exercicio}','{grupo_muscular}')")
         
         df_exercicio = oracle.sqlToDataFrame(
             f"select codigo_exercicio, nome_exercicio from exercicios where nome_exercicio = '{nome_exercicio}'")

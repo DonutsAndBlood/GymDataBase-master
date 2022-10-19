@@ -36,8 +36,8 @@ class SplashScreen:
         #                       SUPER GYM                     
         #                                                         
         #  TOTAL DE REGISTROS:                                    
-        #      1 - Alunos:          {str(self.get_total_alunos())}
-        # #      2 - Exercicios:      {str(self.get_total_exercicios())}   
+        #      1 - Alunos:          {str(self.get_total_alunos()).rjust(5)}
+        #       2 - Exercicios:      {str(self.get_total_exercicios()).rjust(5)}   
         #
         #  CRIADO POR: {self.created_by}
         #
@@ -47,3 +47,4 @@ class SplashScreen:
         #              {self.semestre}
         ########################################################
         """
+
