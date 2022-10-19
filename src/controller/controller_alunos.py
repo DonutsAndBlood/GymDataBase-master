@@ -27,11 +27,17 @@ class Controller_Alunos:
 
         if self.verifica_existencia_aluno(oracle, cpf):
             nome = input("Nome (Novo): ")
-            oracle.write(f"inset into alunos values ('{cpf}', '{nome}')")
+            telefone = input("Telefone (Novo): ")
+            pagamento = input("Pagamento (Novo): ")
+            vencimento_mensalidade = input("Vencimento da mensalidade (Novo): ")
+            codigo_exercicio = input("Código exercício (Novo): ")
+
+
+            oracle.write(f"inset into alunos values ('{cpf}', '{nome}','{telefone}', '{pagamento}', '{vencimento_mensalidade}', '{codigo_exercicio}')")
 
             df_aluno = oracle.sqlToDataFrame(
-                f"select cpf, nome_aluno from alunos where cpf = '{cpf}'")
-            novo_aluno = Alunos(df_aluno.cpf.values[0],df_aluno.nome.values[0])
+                f"select cpf, codigo_exercicio, nome_aluno, telefone, pagamento, vencimento_mensalidade from alunos where cpf = '{cpf}'")
+            novo_aluno = Alunos(df_aluno.cpf.values[0], df_aluno.nome.values[0], df_aluno.telefone.values[0], df_aluno.pagamento.values[0], df_aluno.vencimento_mensalidade.values[0], df_aluno.codigo_exercicio.values[0])
             print(novo_aluno.to_string())
             return novo_aluno
         else:
@@ -74,16 +80,16 @@ class Controller_Alunos:
         cpf = int(input("CPF do aluno a ser excluído: "))
 
         if not self.verifica_existencia_aluno(oracle, cpf):
-            df_aluno = oracle.sqlToDataFrame(f"select cpf, nome from clientes where cpf = {cpf}")
+            df_aluno = oracle.sqlToDataFrame(f"select cpf, nome, telefone, pagamento, vencimento_mensalidade, codigo_exercicio from clientes where cpf = {cpf}")
             oracle.write(f"delete from alunos where cpf = {cpf}")
-            aluno_excluido = Alunos(df_aluno.cpf.values[0], df_aluno.nome.values[0])
+            aluno_excluido = Alunos(df_aluno.nome_aluno.values[0], df_aluno.cpf.values[0],df_aluno.pagamento.values[0], df_aluno.vencimento_mensalidade.values[0],df_aluno.telefone.values[0])
             print("Aluno removido com sucesso!")
             print(aluno_excluido.to_string())
         else:
             print(f"O CPF {cpf} não existe.")
 
     def verifica_existencia_aluno(self,oracle: OracleQueries,cpf: str = None) -> bool:
-        df_aluno = oracle.sqlToDataFrame(f"select cpf, nome_aluno from alunos where cpf = {cpf} f")
+        df_aluno = oracle.sqlToDataFrame(f"select cpf, nome, telefone, pagamento, vencimento_mensalidade, codigo_exercicio from clientes where cpf = {cpf}")
         return df_aluno.empty
 
 
