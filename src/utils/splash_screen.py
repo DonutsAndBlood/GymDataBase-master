@@ -20,14 +20,14 @@ class SplashScreen:
         oracle = OracleQueries()
         oracle.connect()
         # Retorna o total de registros computado pela query
-        return oracle.sqlToDataFrame(self.qry_total_alunos)["Quantidade de alunos: "].values[0]
+        return oracle.sqlToDataFrame(self.qry_total_alunos).values[0]
 
     def get_total_exercicios(self):
         # Cria uma nova conexão com o banco que permite alteração
         oracle = OracleQueries()
         oracle.connect()
         # Retorna o total de registros computado pela query
-        return oracle.sqlToDataFrame(self.qry_total_exercicios)["Quantidad de exercicios: "].values[0]
+        return oracle.sqlToDataFrame(self.qry_total_exercicios).values[0]
 
 
     def get_updated_screen(self):
@@ -36,8 +36,8 @@ class SplashScreen:
         #                       SUPER GYM                     
         #                                                         
         #  TOTAL DE REGISTROS:                                    
-        #      1 - Alunos:         
-        #      2 - Exercicios:         
+        #      1 - Alunos:          {str(self.get_total_alunos())}
+        # #      2 - Exercicios:      {str(self.get_total_exercicios())}   
         #
         #  CRIADO POR: {self.created_by}
         #
@@ -47,7 +47,3 @@ class SplashScreen:
         #              {self.semestre}
         ########################################################
         """
-
-
-        ##{str(self.get_total_alunos())}
-        ##{str(self.get_total_exercicios())}
