@@ -3,12 +3,12 @@ from utils.splash_screen import SplashScreen
 from reports.relatorios import Relatorio
 from controller.controller_alunos import Controller_Alunos
 from controller.controller_exercicios import Controller_Exercicios
+import cx_Oracle
 
 tela_inicial = SplashScreen()
 relatorio = Relatorio()
 ctrl_aluno = Controller_Alunos()
 ctrl_exercicios = Controller_Exercicios()
-
 
 ##PRecisa criar os relatorios
 def relatorios(opcao_relatorio:int=0):
