@@ -19,7 +19,6 @@ MENU_ENTIDADES = """Entidades
 2 - Exercicios
 """
 
-# Consulta de contagem de registros por tabela
 QUERY_COUNT = 'select count(1) as total_{tabela} from {tabela}'
 
 def clear_console(wait_time:int=3):

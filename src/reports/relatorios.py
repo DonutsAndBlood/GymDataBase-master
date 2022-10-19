@@ -3,23 +3,23 @@ from conexion.oracle_queries import OracleQueries
 class Relatorio:
     def __init__(self):
         # Abre o arquivo com a consulta e associa a um atributo da classe
-        with open("sql/gerar_treino.sql") as f:
+        with open("src/sql/gerar_treino.sql") as f:
             self.query_gerar_treino = f.read()
 
         # Abre o arquivo com a consulta e associa a um atributo da classe
-        with open("sql/relatorio_alunos.sql") as f:
+        with open("src/sql/relatorio_alunos.sql") as f:
             self.query_relatorio_alunos = f.read()
 
         # Abre o arquivo com a consulta e associa a um atributo da classe
-        with open("sql/relatorio_exercicios.sql") as f:
+        with open("src/sql/relatorio_exercicios.sql") as f:
             self.query_relatorio_exercicios = f.read()
 
         # Abre o arquivo com a consulta e associa a um atributo da classe
-        with open("sql/relatorio_grupo_muscular.sql") as f:
+        with open("src/sql/relatorio_grupo_muscular.sql") as f:
             self.query_relatorio_grupo_muscular = f.read()
 
         # Abre o arquivo com a consulta e associa a um atributo da classe
-        with open("sql/relatorio_quant_pagamentos.sql") as f:
+        with open("src/sql/relatorio_quant_pagamentos.sql") as f:
             self.query_relatorio_quant_pagamentos = f.read()
 
     def get_gerar_treino(self):

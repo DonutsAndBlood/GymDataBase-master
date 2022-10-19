@@ -11,7 +11,7 @@ ctrl_exercicios = Controller_Exercicios()
 
 
 ##PRecisa criar os relatorios
-def reports(opcao_relatorio:int=0):
+def relatorios(opcao_relatorio:int=0):
 
     if opcao_relatorio == 1:
         relatorio.get_relatorio_alunos            
@@ -67,7 +67,7 @@ def run():
             opcao_relatorio = int(input("Escolha uma opção [0-4]: "))
             config.clear_console(1)
 
-            reports(opcao_relatorio)
+            relatorios(opcao_relatorio)
 
             config.clear_console(1)
 
