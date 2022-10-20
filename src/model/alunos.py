@@ -36,8 +36,8 @@ class Alunos:
     def set_vencimento_mensalidade(self, vencimento_mensalidade: int):
         self.vencimento_mensalidade = vencimento_mensalidade
 
-    def set_exercicio(self) -> Exercicios:
-        return self.exercicio
+    def set_exercicio(self, exercicio) -> Exercicios:
+        self.exercicio = exercicio
 
     def get_nome_aluno(self) -> str:
         return self.nome_aluno
@@ -58,4 +58,4 @@ class Alunos:
         return self.exercicio
 
     def to_string(self):
-        return f"nome.aluno: {self.get_nome_aluno()} | cpf: {self.get_cpf()}| telefone:{self.get_telefone()} | pagamento:{self.get_pagamento()} | vencimento: {self.get_vencimento_mensalidade()} | exercicio: Prod.: {self.get_exercicio().get_nome_exercicio()}"
+        return f"nome.aluno: {self.get_nome_aluno()} | cpf: {self.get_cpf()}| telefone:{self.get_telefone()} | pagamento:{self.get_pagamento()} | vencimento: {self.get_vencimento_mensalidade()}"

@@ -21,11 +21,22 @@ class Controller_Alunos:
             pagamento = input("Pagamento (A para adimplente e I para inadimplente): ")
             vencimento_mensalidade = input("Dia de vencimento da mensalidade: ")
 
-            oracle.write(f"insert into alunos values ('{cpf}', '{nome}', '{pagamento}',{vencimento_mensalidade}', null ,'{telefone}',)")
+            oracle.write(f"insert into alunos values ('{cpf}', '{nome}', '{pagamento}',{vencimento_mensalidade}, null ,{telefone})")
 
             df_aluno = oracle.sqlToDataFrame(
-                f"select cpf, codigo_exercicio, nome_aluno, telefone, pagamento, vencimento_mensalidade from alunos where cpf = '{cpf}'")
-            novo_aluno = Alunos(df_aluno.cpf.values[0], df_aluno.nome.values[0], df_aluno.telefone.values[0], df_aluno.pagamento.values[0], df_aluno.vencimento_mensalidade.values[0], df_aluno.codigo_exercicio.values[0])
+                f"select cpf, alunos_exercicios, nome_aluno, telefone, pagamento, vencimento_mensalidade from alunos where cpf = '{cpf}'")
+
+
+##INSERT INTO ALUNOS VALUES ('167.636.337.89','BRAYAN BAUT','i',13,null,27997863543);
+
+            nome = df_aluno.nome_aluno.values[0]
+            cpf = df_aluno.cpf.values[0]
+            pagamento = df_aluno.pagamento.values[0]
+            vencimento = df_aluno.vencimento_mensalidade.values[0]
+            telefone = df_aluno.telefone.values[0]
+            exercicio = df_aluno.alunos_exercicios.values[0]
+
+            novo_aluno = Alunos(nome,cpf,pagamento,vencimento,telefone,exercicio)
             print(novo_aluno.to_string())
             return novo_aluno
         else:
@@ -77,7 +88,7 @@ class Controller_Alunos:
             print(f"O CPF {cpf} não existe.")
 
     def verifica_existencia_aluno(self,oracle: OracleQueries,cpf: str = None) -> bool:
-        df_aluno = oracle.sqlToDataFrame(f"select cpf, nome_aluno, telefone, pagamento, vencimento_mensalidade, alunos_exercicio from alunos where cpf = {cpf}")
+        df_aluno = oracle.sqlToDataFrame(f"select cpf, nome_aluno, telefone, pagamento, vencimento_mensalidade, alunos_exercicios from alunos where cpf = '{cpf}'")
         return df_aluno.empty
 
 
