@@ -72,7 +72,7 @@ def run():
         elif opcao == 2: # Inserir Novos Registros
             
             print(config.MENU_ENTIDADES)
-            opcao_inserir = int(input("Escolha uma opção [0-3]: "))
+            opcao_inserir = int(input("Escolha uma opção [0-2]: "))
             config.clear_console(1)
 
             inserir(opcao_inserir=opcao_inserir)
@@ -84,7 +84,7 @@ def run():
         elif opcao == 3: # Atualizar Registros
 
             print(config.MENU_ENTIDADES)
-            opcao_atualizar = int(input("Escolha uma opção [0-3]: "))
+            opcao_atualizar = int(input("Escolha uma opção [0-2]: "))
             config.clear_console(1)
 
             atualizar(opcao_atualizar=opcao_atualizar)
@@ -94,7 +94,7 @@ def run():
         elif opcao == 4: #Excluir registros
 
             print(config.MENU_ENTIDADES)
-            opcao_excluir = int(input("Escolha uma opção [0-3]: "))
+            opcao_excluir = int(input("Escolha uma opção [0-2]: "))
             config.clear_console(1)
 
             excluir(opcao_excluir=opcao_excluir)
