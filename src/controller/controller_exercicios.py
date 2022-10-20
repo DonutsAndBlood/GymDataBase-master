@@ -57,22 +57,28 @@ class Controller_Exercicios:
     def excluir_exercicio(self):
         oracle = OracleQueries(can_write=True)
         oracle.connect()
-
-        self.listar_exercicios
+        
+        self.listar_exercicios(oracle,need_connect= True)
         codigo_exercicio = int(input("Codigo do exercicio a ser excluído: "))
 
         if not self.verifica_existencia_exercicio(oracle, codigo_exercicio):
 
             df_exercicio = oracle.sqlToDataFrame(f"select codigo_exercicio, nome_exercicio, repeticoes, grupo_muscular from exercicios where codigo_exercicio = {codigo_exercicio}")
             oracle.write(f"delete from exercicios where codigo_exercicio = {codigo_exercicio}")
-            codigo_excluido = Exercicios(df_exercicio.codigo_exercicio.values[0], df_exercicio.repeticoes.values[0],df_exercicio.grupo_muscular.values[0],df_exercicio.nome_exercicio.values[0])
+
+            CODIGO = df_exercicio.codigo_exercicio.values[0]
+            REPETICOES = df_exercicio.repeticoes.values[0]
+            GRUPO_MUSCULAR = df_exercicio.grupo_muscular.values[0]
+            NOME = df_exercicio.nome_exercicio.values[0]
+
+            codigo_excluido = Exercicios(CODIGO,REPETICOES,GRUPO_MUSCULAR, NOME)
             print("Exercicio removido com sucesso!")
             print(codigo_excluido.to_string())
         else:
             print(f"O codigo {codigo_exercicio} não existe.")
 
     def verifica_existencia_exercicio(self,oracle: OracleQueries,codigo_exercicio: int = None) -> bool:
-        df_exercicio = oracle.sqlToDataFrame(f"select codigo_exercicio, nome_exercicio from exercicios where codigo_exercicio = {codigo_exercicio} f")
+        df_exercicio = oracle.sqlToDataFrame(f"select codigo_exercicio, nome_exercicio from exercicios where codigo_exercicio = {codigo_exercicio}")
         return df_exercicio.empty
 
     def listar_exercicios(self, oracle:OracleQueries, need_connect:bool=False):

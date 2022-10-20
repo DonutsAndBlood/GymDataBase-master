@@ -76,12 +76,20 @@ class Controller_Alunos:
         oracle.connect()
 
         self.listar_alunos(oracle, need_connect=True)
-        cpf = int(input("CPF do aluno a ser excluído: "))
+        cpf = input("CPF do aluno a ser excluído: ")
 
         if not self.verifica_existencia_aluno(oracle, cpf):
-            df_aluno = oracle.sqlToDataFrame(f"select cpf, nome, telefone, pagamento, vencimento_mensalidade, codigo_exercicio from clientes where cpf = {cpf}")
-            oracle.write(f"delete from alunos where cpf = {cpf}")
-            aluno_excluido = Alunos(df_aluno.nome_aluno.values[0], df_aluno.cpf.values[0],df_aluno.pagamento.values[0], df_aluno.vencimento_mensalidade.values[0],df_aluno.telefone.values[0])
+            df_aluno = oracle.sqlToDataFrame(f"select cpf, nome_aluno, telefone, pagamento, vencimento_mensalidade, alunos_exercicios from alunos where cpf = '{cpf}'")
+            oracle.write(f"delete from alunos where cpf = '{cpf}'")
+
+            nome = df_aluno.nome_aluno.values[0]
+            cpf = df_aluno.cpf.values[0]
+            pagamento = df_aluno.pagamento.values[0]
+            vencimento = df_aluno.vencimento_mensalidade.values[0]
+            telefone = df_aluno.telefone.values[0]
+            exercicio = df_aluno.alunos_exercicios.values[0]
+
+            aluno_excluido = Alunos(nome,cpf,pagamento,vencimento,telefone,exercicio)
             print("Aluno removido com sucesso!")
             print(aluno_excluido.to_string())
         else:
