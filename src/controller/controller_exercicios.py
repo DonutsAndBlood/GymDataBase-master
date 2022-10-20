@@ -15,11 +15,17 @@ class Controller_Exercicios:
         repeticoes = input("Número de repetições: ")
         grupo_muscular= input("Grupo muscular treinado: ")   
 
-        oracle.write(f"insert into exercicios values (CODIGO_EXERCICIO_SEQ.NEXTVAL,{repeticoes},'{nome_exercicio}','{grupo_muscular}')")
+        oracle.write(f"insert into exercicios values (CODIGO_EXERCICIOS_SEQ.NEXTVAL,{repeticoes},'{nome_exercicio}','{grupo_muscular}')")
 
         df_exercicio = oracle.sqlToDataFrame(
-            f"select codigo_exercicio, nome_exercicio from exercicios where nome_exercicio = '{nome_exercicio}'")
-        novo_exercicio = Exercicios(df_exercicio.codigo_exercicio.values[0],df_exercicio.repeticoes.values[0],df_exercicio.grupo_muscular.values[0],df_exercicio.nome_exercicio.values[0])
+            f"select codigo_exercicio, nome_exercicio, repeticoes, grupo_muscular from exercicios where nome_exercicio = '{nome_exercicio}'")
+        CODIGO = df_exercicio.codigo_exercicio.values[0]
+        REPETICOES = df_exercicio.repeticoes.values[0]
+        GRUPO_MUSCULAR = df_exercicio.grupo_muscular.values[0]
+        NOME = df_exercicio.nome_exercicio.values[0]
+
+
+        novo_exercicio = Exercicios(CODIGO,REPETICOES,GRUPO_MUSCULAR,NOME)
         print(novo_exercicio.to_string())
         return novo_exercicio
 

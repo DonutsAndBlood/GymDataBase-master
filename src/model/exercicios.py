@@ -12,16 +12,16 @@ class Exercicios:
         self.set_nome_exercicio(nome_exercicio)
 
     def set_codigo_exercicio(self, codigo_exercicio: int):
-        self.set_codigo_exercicio = codigo_exercicio
+        self.codigo_exercicio = codigo_exercicio
 
     def set_repeticoes(self, repeticoes: int):
-        self.set_repeticoes = repeticoes
+        self.repeticoes = repeticoes
 
     def set_grupo_muscular(self, grupo_muscular: str):
-        self.set_grupo_muscular = grupo_muscular
+        self.grupo_muscular = grupo_muscular
 
     def set_nome_exercicio(self, nome_exercicio: str):
-        self.set_nome_exercicio = nome_exercicio    
+        self.nome_exercicio = nome_exercicio    
 
     def get_codigo_exercicio(self) -> int:
         return self.codigo_exercicio
