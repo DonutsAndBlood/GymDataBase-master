@@ -41,7 +41,7 @@ class OracleQueries:
         '''
         if not in_container:
 
-            print("not IN container")
+            
 
 
             string_connection = cx_Oracle.makedsn(host=self.host,
@@ -50,7 +50,7 @@ class OracleQueries:
                                                 )
         elif in_container:
 
-            print("In container")
+            
 
             string_connection = cx_Oracle.makedsn(host=self.host,
                                                 port=self.port,

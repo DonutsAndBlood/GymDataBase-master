@@ -3,6 +3,8 @@ from utils.splash_screen import SplashScreen
 from reports.relatorios import Relatorios
 from controller.controller_alunos import Controller_Alunos
 from controller.controller_exercicios import Controller_Exercicios
+import Criar_tabelas
+import create_tables_and_records
 import cx_Oracle
 
 tela_inicial = SplashScreen()
@@ -50,6 +52,9 @@ def excluir(opcao_excluir:int=0):
 
 
 def run():
+
+    create_tables_and_records.run()
+
     print(tela_inicial.get_updated_screen())
     config.clear_console()
 
