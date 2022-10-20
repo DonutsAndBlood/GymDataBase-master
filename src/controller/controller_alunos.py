@@ -13,27 +13,15 @@ class Controller_Alunos:
         oracle = OracleQueries(can_write=True)
         oracle.connect()
 
-        cursor = oracle.connect()
-
-        cpf = input("CPF(Novo): ")
-
-        data = dict(cpf=cpf)
-        cursor.execute("""
-        begin
-            :codigo := ALUNOS_CODIGO_ALUNO_SEQ.NEXTVAL;
-            insert into alunos values(:nome_aluno, :cpf);
-        end;
-        """, data)
+        cpf = input("Digite o numero de cpf: ")
 
         if self.verifica_existencia_aluno(oracle, cpf):
-            nome = input("Nome (Novo): ")
-            telefone = input("Telefone (Novo): ")
-            pagamento = input("Pagamento (Novo): ")
-            vencimento_mensalidade = input("Vencimento da mensalidade (Novo): ")
-            codigo_exercicio = input("Código exercício (Novo): ")
+            nome = input("Nome: ")
+            telefone = input("Telefone: ")
+            pagamento = input("Pagamento (A para adimplente e I para inadimplente): ")
+            vencimento_mensalidade = input("Dia de vencimento da mensalidade: ")
 
-
-            oracle.write(f"inset into alunos values ('{cpf}', '{nome}','{telefone}', '{pagamento}', '{vencimento_mensalidade}', '{codigo_exercicio}')")
+            oracle.write(f"insert into alunos values ('{cpf}', '{nome}', '{pagamento}',{vencimento_mensalidade}', null ,'{telefone}',)")
 
             df_aluno = oracle.sqlToDataFrame(
                 f"select cpf, codigo_exercicio, nome_aluno, telefone, pagamento, vencimento_mensalidade from alunos where cpf = '{cpf}'")
@@ -89,7 +77,7 @@ class Controller_Alunos:
             print(f"O CPF {cpf} não existe.")
 
     def verifica_existencia_aluno(self,oracle: OracleQueries,cpf: str = None) -> bool:
-        df_aluno = oracle.sqlToDataFrame(f"select cpf, nome, telefone, pagamento, vencimento_mensalidade, codigo_exercicio from clientes where cpf = {cpf}")
+        df_aluno = oracle.sqlToDataFrame(f"select cpf, nome_aluno, telefone, pagamento, vencimento_mensalidade, alunos_exercicio from alunos where cpf = {cpf}")
         return df_aluno.empty
 
 

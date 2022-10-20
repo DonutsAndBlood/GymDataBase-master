@@ -1,3 +1,4 @@
+from numpy import int0
 from model.exercicios import Exercicios
 
 
@@ -7,7 +8,7 @@ class Alunos:
         nome_aluno: str = None,
         cpf: str = None,
         pagamento: int = None,
-        vencimento_mensalidade: str = None,
+        vencimento_mensalidade: int = None,
         telefone: int = None,
         exercicio: Exercicios=None
 
@@ -21,19 +22,19 @@ class Alunos:
         self.set_exercicio(exercicio)
 
     def set_nome_aluno(self, nome_aluno: str):
-        self.set_nome_aluno = nome_aluno
+        self.nome_aluno = nome_aluno
 
     def set_cpf(self, cpf: str):
-        self.set_cpf = cpf
+        self.cpf = cpf
 
     def set_telefone(self, telefone: int):
-        self.set_telefone = telefone
+        self.telefone = telefone
 
     def set_pagamento(self, pagamento: int):
         self.pagamento = pagamento
 
-    def set_vencimento_mensalidade(self, vencimento_mensalidade: str):
-        self.set_vencimento_mensalidade = vencimento_mensalidade
+    def set_vencimento_mensalidade(self, vencimento_mensalidade: int):
+        self.vencimento_mensalidade = vencimento_mensalidade
 
     def set_exercicio(self) -> Exercicios:
         return self.exercicio
