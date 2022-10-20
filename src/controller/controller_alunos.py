@@ -25,7 +25,7 @@ class Controller_Alunos:
             Controller_Exercicios.listar_exercicios(self,oracle,need_connect= True)
             exercicio = input("Digite exercicio preferido: ")
 
-            oracle.write(f"insert into alunos values ('{cpf}', '{nome}', '{pagamento}',{vencimento_mensalidade}, 1 ,{telefone})")
+            oracle.write(f"insert into alunos values ('{cpf}', '{nome}', '{pagamento}',{vencimento_mensalidade}, {exercicio} ,{telefone})")
 
             df_aluno = oracle.sqlToDataFrame(
                 f"select cpf, alunos_exercicios, nome_aluno, telefone, pagamento, vencimento_mensalidade from alunos where cpf = '{cpf}'")

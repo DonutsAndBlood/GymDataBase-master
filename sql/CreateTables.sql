@@ -21,7 +21,7 @@ CREATE TABLE LABDATABASE.Alunos (
                 Nome_Aluno VARCHAR2(100) NOT NULL,
                 Pagamento CHAR NOT NULL,
                 Vencimento_Mensalidade numeric(2) NOT NULL,
-                Alunos_Exercicios NUMBER(3),
+                Alunos_Exercicios NUMBER(8),
                 Telefone NUMBER(11) NOT NULL,
                 CONSTRAINT CPF_ALUNO PRIMARY KEY (Cpf)
 );
