@@ -1,6 +1,6 @@
 from conexion.oracle_queries import OracleQueries
 
-class Relatorio:
+class Relatorios:
     def __init__(self):
         # Abre o arquivo com a consulta e associa a um atributo da classe
         with open("src/sql/gerar_treino.sql") as f:
@@ -31,6 +31,7 @@ class Relatorio:
         input("Pressione Enter para Sair da sua ficha de treino")
 
     def get_relatorio_alunos(self):
+
         # Cria uma nova conexão com o banco que permite alteração
         oracle = OracleQueries()
         oracle.connect()
@@ -52,7 +53,7 @@ class Relatorio:
         oracle.connect()
         # Recupera os dados transformando em um DataFrame
         print(oracle.sqlToDataFrame(self.query_relatorio_quant_pagamentos))
-        input("Pressione Enter para Sair do Relatório de quantidade de adimplentes")
+        input("Pressione Enter para Sair do Relatório de quantidade de inadimplentes")
 
     def get_relatorio_grupo_muscular(self):
         # Cria uma nova conexão com o banco que permite alteração
