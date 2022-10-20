@@ -15,10 +15,6 @@ class Relatorios:
             self.query_relatorio_exercicios = f.read()
 
         # Abre o arquivo com a consulta e associa a um atributo da classe
-        with open("src/sql/relatorio_grupo_muscular.sql") as f:
-            self.query_relatorio_grupo_muscular = f.read()
-
-        # Abre o arquivo com a consulta e associa a um atributo da classe
         with open("src/sql/relatorio_quant_pagamentos.sql") as f:
             self.query_relatorio_quant_pagamentos = f.read()
 
@@ -54,11 +50,3 @@ class Relatorios:
         # Recupera os dados transformando em um DataFrame
         print(oracle.sqlToDataFrame(self.query_relatorio_quant_pagamentos))
         input("Pressione Enter para Sair do Relatório de quantidade de inadimplentes")
-
-    def get_relatorio_grupo_muscular(self):
-        # Cria uma nova conexão com o banco que permite alteração
-        oracle = OracleQueries()
-        oracle.connect()
-        # Recupera os dados transformando em um DataFrame
-        print(oracle.sqlToDataFrame(self.query_relatorio_grupo_muscular))
-        input("Pressione Enter para Sair do Relatório de alunos por grupo muscular")

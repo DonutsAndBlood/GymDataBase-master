@@ -3,21 +3,21 @@ MENU_PRINCIPAL = """Menu Principal
 2 - Inserir Registros
 3 - Atualizar Registros
 4 - Remover Registros
-5 - Sair
+5 - Carregar templates
+6 - Sair
 """
 
 MENU_RELATORIOS = """Relatórios
 1 - Relatório de Alunos
 2 - Relatório de Exercicios
-3 - Relatório de ALunos por tipo de Grupo muscular
-4 - Gerar ficha de exercicio diária
-5 - Relatório de alunos Inadimplentes
+3 - Gerar ficha de exercicio diária
+4 - Relatório de alunos Inadimplentes
 0 - Sair
 """
 
-MENU_ENTIDADES = """Entidades
-1 - ALunos
-2 - Exercicios
+MENU_ENTIDADES = """Escolha a entidade
+1 - Alunos
+2 - Exercicio
 """
 
 QUERY_COUNT = 'select count(1) as total_{tabela} from {tabela}'

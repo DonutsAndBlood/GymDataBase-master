@@ -43,7 +43,7 @@ class Alunos:
         return self.nome_aluno
 
     def get_cpf(self) -> str:
-        return self.set_cpf
+        return self.cpf
 
     def get_telefone(self) -> str:
         return self.telefone
@@ -58,4 +58,12 @@ class Alunos:
         return self.exercicio
 
     def to_string(self):
-        return f"nome.aluno: {self.get_nome_aluno()} | cpf: {self.get_cpf()}| telefone:{self.get_telefone()} | pagamento:{self.get_pagamento()} | vencimento: {self.get_vencimento_mensalidade()}"
+        return f"""
+        ________________________________________________________
+
+        |Nome do aluno - {self.get_nome_aluno()}               
+        |CPF: {self.get_cpf()}                                 
+        |Telefone:{self.get_telefone()}                        
+        |Situação da matricula:{self.get_pagamento()}          
+        |Dia de vencimento: {self.get_vencimento_mensalidade()}
+        ________________________________________________________"""

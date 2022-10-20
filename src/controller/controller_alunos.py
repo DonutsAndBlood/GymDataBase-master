@@ -21,13 +21,13 @@ class Controller_Alunos:
             pagamento = input("Pagamento (A para adimplente e I para inadimplente): ")
             vencimento_mensalidade = input("Dia de vencimento da mensalidade: ")
 
-            oracle.write(f"insert into alunos values ('{cpf}', '{nome}', '{pagamento}',{vencimento_mensalidade}, null ,{telefone})")
+            oracle.write(f"insert into alunos values ('{cpf}', '{nome}', '{pagamento}',{vencimento_mensalidade}, 1 ,{telefone})")
 
             df_aluno = oracle.sqlToDataFrame(
                 f"select cpf, alunos_exercicios, nome_aluno, telefone, pagamento, vencimento_mensalidade from alunos where cpf = '{cpf}'")
 
 
-##INSERT INTO ALUNOS VALUES ('167.636.337.89','BRAYAN BAUT','i',13,null,27997863543);
+
 
             nome = df_aluno.nome_aluno.values[0]
             cpf = df_aluno.cpf.values[0]

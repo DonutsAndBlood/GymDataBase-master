@@ -36,4 +36,10 @@ class Exercicios:
         return self.nome_exercicio
 
     def to_string(self) -> str:
-        return f"codigo_exercicio: {self.get_codigo_exercicio()} | repeticoes: {self.get_repeticoes()} | grupo_muscular{self.get_grupo_muscular()}"
+        return f"""
+        ___________________________________________________
+
+        |Codigo do exercicio - {self.get_codigo_exercicio()}
+        |Repeticoes - {self.get_repeticoes()}
+        |Grupo muscular - {self.get_grupo_muscular()}
+        ___________________________________________________"""
