@@ -32,7 +32,7 @@ class SplashScreen:
 
     def get_updated_screen(self):
         return f"""
-        ########################################################
+        #########################################################
         #                       SUPER GYM                     
         #                                                         
         #  TOTAL DE REGISTROS:                                    
@@ -45,6 +45,6 @@ class SplashScreen:
         #
         #  DISCIPLINA: {self.disciplina}
         #              {self.semestre}
-        ########################################################
+        #########################################################
         """
 

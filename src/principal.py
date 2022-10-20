@@ -1,28 +1,28 @@
 from utils import config
 from utils.splash_screen import SplashScreen
-from reports.relatorios import Relatorio
+from reports.relatorios import Relatorios
 from controller.controller_alunos import Controller_Alunos
 from controller.controller_exercicios import Controller_Exercicios
 import cx_Oracle
 
 tela_inicial = SplashScreen()
-relatorio = Relatorio()
+relatorio = Relatorios()
 ctrl_aluno = Controller_Alunos()
 ctrl_exercicios = Controller_Exercicios()
 
-##PRecisa criar os relatorios
+#Relatorios não entram??
 def relatorios(opcao_relatorio:int=0):
 
     if opcao_relatorio == 1:
-        relatorio.get_relatorio_alunos            
+        relatorio.get_relatorio_alunos()          
     elif opcao_relatorio == 2:
-        relatorio.get_relatorio_exercicios
+        relatorio.get_relatorio_exercicios()
     elif opcao_relatorio == 3:
-        relatorio.get_relatorio_grupo_muscular
+        relatorio.get_relatorio_grupo_muscular()
     elif opcao_relatorio == 4:
-        relatorio.get_relatorio_quant_pagamentos
+        relatorio.get_gerar_treino()
     elif opcao_relatorio == 5:
-        relatorio.get_gerar_treino
+        relatorio.get_relatorio_quant_pagamentos()
 
 def inserir(opcao_inserir:int=0):
 
@@ -41,14 +41,11 @@ def atualizar(opcao_atualizar:int=0):
         exercicio_atualizado = ctrl_exercicios.atualizar_exercicios()
 
 
-##Precisa criar os relatorios
 def excluir(opcao_excluir:int=0):
 
     if opcao_excluir == 1:
-        relatorio.get_relatorio_alunos()
         ctrl_aluno.excluir_aluno()
     elif opcao_excluir == 2:                
-        relatorio.get_relatorio_exercicios
         ctrl_exercicios.excluir_exercicio()
 
 
@@ -64,9 +61,8 @@ def run():
         if opcao == 1: # Relatórios
             
             print(config.MENU_RELATORIOS)
-            opcao_relatorio = int(input("Escolha uma opção [0-4]: "))
+            opcao_relatorio = int(input("Escolha uma opção [0-5]: "))
             config.clear_console(1)
-
             relatorios(opcao_relatorio)
 
             config.clear_console(1)
@@ -93,7 +89,7 @@ def run():
 
             config.clear_console()
 
-        elif opcao == 4:
+        elif opcao == 4: #Excluir registros
 
             print(config.MENU_ENTIDADES)
             opcao_excluir = int(input("Escolha uma opção [1 ou 2]: "))

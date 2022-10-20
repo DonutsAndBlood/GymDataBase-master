@@ -11,6 +11,7 @@ MENU_RELATORIOS = """Relatórios
 2 - Relatório de Exercicios
 3 - Relatório de ALunos por tipo de Grupo muscular
 4 - Gerar ficha de exercicio diária
+5 - Relatório de alunos Inadimplentes
 0 - Sair
 """
 
