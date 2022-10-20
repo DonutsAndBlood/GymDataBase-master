@@ -3,7 +3,6 @@ from utils.splash_screen import SplashScreen
 from reports.relatorios import Relatorios
 from controller.controller_alunos import Controller_Alunos
 from controller.controller_exercicios import Controller_Exercicios
-import Criar_tabelas
 import create_tables_and_records
 import cx_Oracle
 
@@ -20,11 +19,10 @@ def relatorios(opcao_relatorio:int=0):
     elif opcao_relatorio == 2:
         relatorio.get_relatorio_exercicios()
     elif opcao_relatorio == 3:
-        relatorio.get_relatorio_grupo_muscular()
-    elif opcao_relatorio == 4:
         relatorio.get_gerar_treino()
-    elif opcao_relatorio == 5:
+    elif opcao_relatorio == 4:
         relatorio.get_relatorio_quant_pagamentos()
+        
 
 def inserir(opcao_inserir:int=0):
 
@@ -51,16 +49,15 @@ def excluir(opcao_excluir:int=0):
         ctrl_exercicios.excluir_exercicio()
 
 
-def run():
 
-    create_tables_and_records.run()
+def run():
 
     print(tela_inicial.get_updated_screen())
     config.clear_console()
 
     while True:
         print(config.MENU_PRINCIPAL)
-        opcao = int(input("Escolha uma opção [1-5]: "))
+        opcao = int(input("Escolha uma opção [1-6]: "))
         config.clear_console(1)
         
         if opcao == 1: # Relatórios
@@ -75,7 +72,7 @@ def run():
         elif opcao == 2: # Inserir Novos Registros
             
             print(config.MENU_ENTIDADES)
-            opcao_inserir = int(input("Escolha uma opção [1 ou 2]: "))
+            opcao_inserir = int(input("Escolha uma opção [0-3]: "))
             config.clear_console(1)
 
             inserir(opcao_inserir=opcao_inserir)
@@ -87,7 +84,7 @@ def run():
         elif opcao == 3: # Atualizar Registros
 
             print(config.MENU_ENTIDADES)
-            opcao_atualizar = int(input("Escolha uma opção [1 ou 2]: "))
+            opcao_atualizar = int(input("Escolha uma opção [0-3]: "))
             config.clear_console(1)
 
             atualizar(opcao_atualizar=opcao_atualizar)
@@ -97,7 +94,7 @@ def run():
         elif opcao == 4: #Excluir registros
 
             print(config.MENU_ENTIDADES)
-            opcao_excluir = int(input("Escolha uma opção [1 ou 2]: "))
+            opcao_excluir = int(input("Escolha uma opção [0-3]: "))
             config.clear_console(1)
 
             excluir(opcao_excluir=opcao_excluir)
@@ -106,7 +103,15 @@ def run():
             print(tela_inicial.get_updated_screen())
             config.clear_console()
 
-        elif opcao == 5:
+        elif opcao == 5:##Carrega templates
+
+            create_tables_and_records.run()
+            config.clear_console(1)
+            config.clear_console()
+            print(tela_inicial.get_updated_screen())
+            config.clear_console()
+
+        elif opcao == 6:
 
             print(tela_inicial.get_updated_screen())
             config.clear_console()
