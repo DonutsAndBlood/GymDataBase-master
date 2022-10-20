@@ -1,6 +1,7 @@
 from distutils.file_util import copy_file
 from model.alunos import Alunos
 from conexion.oracle_queries import OracleQueries
+from controller.controller_exercicios import Controller_Exercicios
 
 
 class Controller_Alunos:
@@ -20,6 +21,9 @@ class Controller_Alunos:
             telefone = input("Telefone: ")
             pagamento = input("Pagamento (A para adimplente e I para inadimplente): ")
             vencimento_mensalidade = input("Dia de vencimento da mensalidade: ")
+
+            Controller_Exercicios.listar_exercicios(self,oracle,need_connect= True)
+            exercicio = input("Digite exercicio preferido: ")
 
             oracle.write(f"insert into alunos values ('{cpf}', '{nome}', '{pagamento}',{vencimento_mensalidade}, 1 ,{telefone})")
 

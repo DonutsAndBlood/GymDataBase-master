@@ -10,8 +10,8 @@ MENU_PRINCIPAL = """Menu Principal
 MENU_RELATORIOS = """Relatórios
 1 - Relatório de Alunos
 2 - Relatório de Exercicios
-3 - Gerar ficha de exercicio diária
-4 - Relatório de alunos Inadimplentes
+3 - Relatório de Exercicios Favoritos
+4 - Relatório de Alunos Inadimplentes
 0 - Sair
 """
 

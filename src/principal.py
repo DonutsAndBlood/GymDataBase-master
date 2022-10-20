@@ -19,7 +19,7 @@ def relatorios(opcao_relatorio:int=0):
     elif opcao_relatorio == 2:
         relatorio.get_relatorio_exercicios()
     elif opcao_relatorio == 3:
-        relatorio.get_gerar_treino()
+        relatorio.get_relatorio_exercicio_favorito()
     elif opcao_relatorio == 4:
         relatorio.get_relatorio_quant_pagamentos()
         
